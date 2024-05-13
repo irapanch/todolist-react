@@ -1,0 +1,15 @@
+{
+    "short_name": "todolist-react",
+    "name": "todolist-react application",
+    "description": "An application for make your own todos",
+    "icons": [
+      {
+        "src": "vite.svg",
+        "sizes": "32x32",
+        "type": "image/svg+xml"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fc8905"
+  }
