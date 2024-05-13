@@ -1,12 +1,12 @@
 
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { HeaderWrapper, Nav } from './Header.styled'
+import { Button, HeaderWrapper, Nav } from './Header.styled'
 
 const Header = () => {
   return (
     <HeaderWrapper>
-        <nav>
+        <nav >
             <Nav >
               <li><NavLink   to='/'>Home</NavLink></li>
               <li><NavLink  to='/todos'>Todos</NavLink></li>
@@ -16,10 +16,10 @@ const Header = () => {
             </Nav>
         </nav>
         <h2>fff@gmail.com</h2>
-        <div >
-      <button >Logout</button>
+        <Button>
+        Logout
       
-    </div>
+    </Button>
     </HeaderWrapper>
   )
 }
