@@ -2,6 +2,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { HomePage, LoginPage, NotFoundPage, RegisterPage, TodosPage } from './pages/index'
 import Header from './components/Header/Header'
+import PrivateRoute from './components/Routes/PrivateRoute'
 // npm run deploy
 
 const App = () => {
@@ -14,7 +15,12 @@ const App = () => {
      <Header/>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
-        <Route path='/todos' element={<TodosPage/>}/>
+        {/* елемент TodosPage огорнутий приватним роутом */}
+        <Route path='/todos' element={
+        <PrivateRoute>
+ <TodosPage/>
+        </PrivateRoute>
+       }/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
         <Route path='*' element={<NotFoundPage/>}/>

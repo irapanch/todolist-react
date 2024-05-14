@@ -1,12 +1,15 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Button, Form, StyledLink } from '../components/RegisterForm/RegisterForm..styled'
-import { useDispatch } from 'react-redux'
+import { Form, StyledLink } from '../components/RegisterForm/RegisterForm.styled'
+import { useDispatch, useSelector } from 'react-redux'
 import { registerThunk } from '../redux/auth/operations'
 import { useNavigate } from 'react-router-dom'
+import ButtonLoader from '../components/Button/Button'
+import { selectLoading } from '../redux/auth/selectors'
 
 export const RegisterPage = () => {
   const {handleSubmit, register, reset} = useForm()
+  const isLoading = useSelector(selectLoading)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const submit = data => {
@@ -28,7 +31,7 @@ dispatch(registerThunk(data))
         <label>     <input {...register('password')} placeholder="Password"/></label>
         
     
-        <Button type="submit" >Submit</Button>
+        <ButtonLoader isloading={isLoading} title='Register'/>
         <StyledLink to='/login'>Login</StyledLink>
       </Form>
     </section>
