@@ -12,8 +12,8 @@ export const LoginPage = () => {
   const submit = data => {
     dispatch(loginThunk(data))
     .unwrap()
-.then((res)=> {
-  alert(`Welcome ${res.email}!`)
+.then(()=> {
+  alert(`Welcome ${data.email}!`)
   navigate('/todos')
 })
 .catch(()=> alert('Data is not valid!'))

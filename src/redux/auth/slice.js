@@ -1,14 +1,14 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit"
 
-import { loginThunk, registerThunk } from "./operations"
+import { loginThunk, logoutThunk, registerThunk } from "./operations"
 
 const initialState = {
     user: {
         name: '',
         email: '',
     },
-    token: 'zfjj',
-    isLoggedIn: true,
+    token: '',
+    isLoggedIn: false,
     error: '',
 }
 
@@ -16,6 +16,10 @@ const slice = createSlice({
     name: 'auth',
     initialState,
     extraReducers: builder => {
+        builder
+        .addCase(logoutThunk.fulfilled, (state, {payload}) => {
+         return   (state = initialState)
+        })
         // builder.addCase(registerThunk.fulfilled, (state, {payload}) => {
         //     state.user = payload.user
         //     state.token = payload.token
@@ -27,7 +31,8 @@ const slice = createSlice({
         //     state.isLoggedIn = true
         // })
         // ------- однакові функції можемо об'єднати в addMatcher
-         builder.addMatcher(isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),(state, {payload}) => {
+        
+         .addMatcher(isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),(state, {payload}) => {
                 state.user = payload.user
                 state.token = payload.token
                 state.isLoggedIn = true

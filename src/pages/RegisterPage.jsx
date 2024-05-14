@@ -12,8 +12,8 @@ export const RegisterPage = () => {
   const submit = data => {
 dispatch(registerThunk(data))
 .unwrap() //дочекайся виконання промісу, розгорни всі дані (res)
-.then((res)=> {
-  alert(`Welcome ${res.name}!`) // дані надходять не з редакса(data), а з респонсу (res)
+.then(()=> {
+  alert(`Welcome ${data.name}!`) 
   reset()
   navigate('/todos')
 })
