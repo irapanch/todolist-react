@@ -42,6 +42,9 @@ const slice = createSlice({
                 state.isLoggedIn = true
                 state.loading = false
             })
+        .addMatcher(isAnyOf(registerThunk.rejected, loginThunk.rejected),(state, {payload}) => {
+                state.loading = false
+            })
     },
 })
 
