@@ -3,11 +3,11 @@ import AddForm from './AddForm'
 import Filter from './Filter'
 import TodoItem from './TodoItem'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectTodos } from '../../redux/todos/selectors'
+import { selectFilteredTodos, selectTodos } from '../../redux/todos/selectors'
 import { fetchTodoThunk } from '../../redux/todos/operations'
 
 const TodoList = () => {
-  const todos = useSelector(selectTodos)
+  const todos = useSelector(selectFilteredTodos)
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(fetchTodoThunk())

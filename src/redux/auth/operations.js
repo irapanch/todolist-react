@@ -4,7 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const herokuApi = axios.create({
-    baseURL: 'https://connections-api.herokuapp.com/',
+    baseURL: 'https://goit-task-manager.herokuapp.com/',
   });
 
   // хелпер, що дає можливість встановлювати токен з Headers. Передається в момент реєстрації й логінізації, Bearer - тримач токену
