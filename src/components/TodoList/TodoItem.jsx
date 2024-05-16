@@ -3,7 +3,7 @@ import { ItemWrap } from './Todolist.styled'
 import { useDispatch } from 'react-redux'
 import { deleteTodoThunk, toggleTodoThunk } from '../../redux/todos/operations'
 
-const TodoItem = ({id, title, completed}) => {
+const TodoItem = ({id, text, completed}) => {
   const idItem = useId()// хук для генерації id всередині форми
   const dispatch = useDispatch()
   const handleDelete = () => {
@@ -15,7 +15,7 @@ const TodoItem = ({id, title, completed}) => {
     <h5 >
      <p 
      className={completed ? 'line-through' : ''}
-     >{title} </p>
+     >{text} </p>
     </h5>
     <div >
       
@@ -23,7 +23,7 @@ const TodoItem = ({id, title, completed}) => {
       <input type="checkbox"
       id={idItem} 
         checked={completed} 
-        onChange={()=>dispatch(toggleTodoThunk({id, title, completed}))}
+        onChange={()=>dispatch(toggleTodoThunk({id, text, completed}))}
         />
       <label htmlFor={idItem}>{completed ? 'Done' : 'Set completed'}</label>
        

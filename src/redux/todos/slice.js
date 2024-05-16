@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { deleteTodoThunk, fetchTodoThunk, toggleTodoThunk } from "./operations"
+import { logoutThunk } from "../auth/operations"
 
 const initialState = {
-    // todos: [{todo: 'TEST', id: 1, completed: true}],
     todos: [],
     filter: 'all',
     loading: false,
@@ -40,6 +40,9 @@ const slice = createSlice({
         .addCase(toggleTodoThunk.fulfilled, (state, {payload}) => {
             state.loading = false
             state.currentItem = null
+        })
+        .addCase(logoutThunk.fulfilled, (state, action) => {
+            state.todos = [] // дозволяє очистити дані, щоб наступний користувач не побачив стейт попереднього користувача
         })
     }
 })

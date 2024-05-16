@@ -10,10 +10,10 @@ export const herokuApi = axios.create({
   // хелпер, що дає можливість встановлювати токен з Headers. Передається в момент реєстрації й логінізації, Bearer - тримач токену
   const setToken = (token) => {
 
-herokuApi.defaults.headers.common.Authorization = `Bearer ${token}`
+herokuApi.defaults.headers.common.Authorization = `Bearer ${token}`  // common.Authorization - додає авторизацію на всі запити(get, put, patch...)
   }
   // хелпер, що дає можливість видаляти токен
-const clearToken = (token) => {
+const clearToken = () => {
   herokuApi.defaults.headers.common.Authorization = ``
   }
   export const registerThunk = createAsyncThunk('register', async (credentials, thunkApi) => {
@@ -31,7 +31,7 @@ const clearToken = (token) => {
     try{
         const {data} = await herokuApi.post('/users/login', credentials)
         setToken(data.token)
-        console.log(data)
+    
         return data
     }
     catch (error){

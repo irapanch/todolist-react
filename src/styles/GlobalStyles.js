@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
    --text-clarification: #006299;
  
   --dark-theme-bg: #fc8905;
-  --light-theme-bg: #fc8905;
+  --light-theme-bg: #F7EEA3;
 }
 body {
   color: var(--black);

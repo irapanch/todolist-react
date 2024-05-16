@@ -14,6 +14,7 @@ border-radius: 6px ;
 background-color: var(--main);
 padding: 10px;
 margin-top: 40px;
+box-shadow: 0 2px 12px var(--border);
 h2 {
     font-size: 30px;
 }
@@ -46,6 +47,10 @@ box-shadow: 0 2px 12px var(--border);
     background-color: var(--card);
     cursor: pointer;
 }
+&:focus{
+    background-color: var(--card);
+}
+
 
 `
 export const StyledLink = styled(Link)`
