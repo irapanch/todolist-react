@@ -19,11 +19,17 @@ margin: auto;
  h2 {
     font-weight: 400;
   }
+  .logo {
+width: 100%;
+height: 100%;
+padding-top: 8px;
+}
 `
 export const Nav = styled.ul`
 
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   height: 100%;
   font-size: 24px;

@@ -2,16 +2,18 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import {  Form, StyledLink } from '../components/RegisterForm/RegisterForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { loginThunk } from '../redux/auth/operations';
 import ButtonLoader from '../components/Button/Button';
-import { selectLoading } from '../redux/auth/selectors';
+import { selecIsLoggedIn, selectLoading } from '../redux/auth/selectors';
 
 export const LoginPage = () => {
   const {handleSubmit, register} = useForm()
   const isLoading = useSelector(selectLoading)
+  const isLoggedIn = useSelector(selecIsLoggedIn)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
   const submit = data => {
     dispatch(loginThunk(data))
     .unwrap()
@@ -20,6 +22,9 @@ export const LoginPage = () => {
   navigate('/todos')
 })
 .catch(()=> alert('Data is not valid!'))
+}
+if (isLoggedIn) {
+  return <Navigate to='/todos'/>
 }
   return (
     <section>

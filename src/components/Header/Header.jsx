@@ -5,6 +5,7 @@ import { Button, HeaderWrapper, Nav } from './Header.styled'
 import { useDispatch, useSelector } from 'react-redux'
 import { selecIsLoggedIn,  selectUser } from '../../redux/auth/selectors'
 import { logoutThunk } from '../../redux/auth/operations'
+import LogoSvg from '../../assets/logo.svg?react'
 
 const Header = () => {
   const {name} = useSelector(selectUser)
@@ -18,7 +19,9 @@ dispatch(logoutThunk())
         <nav >
             <Nav >
              
-              <li><NavLink   to='/'>Home</NavLink></li>
+              <li><NavLink   to='/'>
+              <LogoSvg className="logo" />
+                </NavLink></li>
               
               {isLoggedin && (
                 <>

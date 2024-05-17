@@ -48,3 +48,16 @@ const clearToken = () => {
         return rejectWithValue(error.message)
     }
   } )
+  export const refreshThunk = createAsyncThunk('refresh', async (_, { rejectWithValue, getState })  => { // рефреш юзера, при  оновленні запиту на сервері нам прийде юзер, який був на сервері 
+    const savedToken = getState().auth.token //  треба перевірити, чи є в нас токен
+    if (!savedToken) {
+      alert('Token is not exist')
+      return rejectWithValue('Token is not exist')
+    }
+    try {
+      setToken(savedToken)
+      const { data } = await herokuApi.get('users/me')
+      console.log(data)
+      return data
+    } catch (error) {}
+  })
