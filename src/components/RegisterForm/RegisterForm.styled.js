@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 export const Form = styled.form`
 
 max-width: 325px;
-margin: auto;
+margin: 40px auto ;
 text-align: center;
 display: flex;
 flex-direction: column;
 gap: 20px;
 border: 2px solid var(--border);
 border-radius: 6px ;
-background-color: var(--main);
+background-color: var(--card);
 padding: 10px;
-margin-top: 40px;
+
+
 box-shadow: 0 2px 12px var(--border);
 h2 {
     font-size: 30px;

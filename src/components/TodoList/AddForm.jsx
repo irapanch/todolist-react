@@ -14,7 +14,7 @@ const AddForm = () => {
 }
   return (
     <Form onSubmit={submit}>
-      <input value={value} onChange={e => setValue(e.target.value)}placeholder="Type the text..." required />
+      <input value={value} onChange={e => setValue(e.target.value)}placeholder="Enter Quick Task Here..." required />
       <Button  type="submit">Submit</Button>
     </Form>
   )

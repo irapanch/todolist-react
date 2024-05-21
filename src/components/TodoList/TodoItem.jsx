@@ -2,6 +2,7 @@ import React, { useId } from 'react'
 import { ItemWrap } from './Todolist.styled'
 import { useDispatch } from 'react-redux'
 import { deleteTodoThunk, toggleTodoThunk } from '../../redux/todos/operations'
+import { Button } from '../RegisterForm/RegisterForm.styled'
 
 const TodoItem = ({id, text, completed}) => {
   const idItem = useId()// хук для генерації id всередині форми
@@ -12,11 +13,11 @@ const TodoItem = ({id, text, completed}) => {
  
   return (
     <ItemWrap>
-    <h5 >
+    <h3 >
      <p 
      className={completed ? 'line-through' : ''}
      >{text} </p>
-    </h5>
+    </h3>
     <div >
       
       
@@ -30,11 +31,11 @@ const TodoItem = ({id, text, completed}) => {
         
         
       </div>
-    <button
+    <Button
      onClick={handleDelete}
      >
      Delete todo
-    </button>
+    </Button>
   </ItemWrap>
   )
 }

@@ -17,8 +17,29 @@ text-align: center;
 
 `;
 
+export const FilterWrap = styled.div`
+
+margin-bottom: 40px;
+text-align: center;
+`
+export const ListWrap = styled.ul`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 10px;
+
+`
 export const ItemWrap = styled.li`
-width: 100%;
+display: flex;
+
+flex-direction: column;
+gap: 20px;
+width: 370px;
+border-radius: 6px;
+padding: 10px 15px;
+font-size: 24px;
+border: 2px solid var(--border);
+box-shadow: 0 2px 12px var(--border);
 background-color: var(--card);
 `;
 export const AuthLink = styled(Link)`

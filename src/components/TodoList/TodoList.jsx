@@ -5,6 +5,7 @@ import TodoItem from './TodoItem'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectFilteredTodos, selectTodos } from '../../redux/todos/selectors'
 import { fetchTodoThunk } from '../../redux/todos/operations'
+import { ListWrap } from './Todolist.styled'
 
 const TodoList = () => {
   const todos = useSelector(selectFilteredTodos)
@@ -16,9 +17,9 @@ const TodoList = () => {
     <>
     <AddForm/>
     <Filter/>
-    <ul>
+    <ListWrap>
       {todos.map(item => <TodoItem key={item.id} {...item}/>)}
-    </ul>
+    </ListWrap>
     </>
     
   )
