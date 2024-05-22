@@ -13,12 +13,12 @@ const slice = createSlice({
     name: 'todos',
     initialState,
     reducers: {
-        clearSelectedTodo: (state, action) => {
-            state.todos= state.todos.filter((item) => !item.completed)
-        },
-        clearTodos: (state, action) => {
-            state.todos= []
-        },
+        // clearSelectedTodo: (state, action) => {
+        //     state.todos= state.todos.filter((item) => !item.completed)
+        // },
+        // clearTodos: (state, action) => {
+        //     state.todos= []
+        // },
         setFilterStr: (state, action) => {
             state.filter= action.payload
         },
@@ -48,4 +48,4 @@ const slice = createSlice({
 })
 
 export const todosReducer = slice.reducer
-export const {  setCurrentItem, clearSelectedTodo, clearTodos, setFilterStr} = slice.actions
+export const {  setCurrentItem,  setFilterStr} = slice.actions

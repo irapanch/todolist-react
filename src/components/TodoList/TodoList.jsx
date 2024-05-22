@@ -3,7 +3,7 @@ import AddForm from './AddForm'
 import Filter from './Filter'
 import TodoItem from './TodoItem'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectFilteredTodos, selectTodos } from '../../redux/todos/selectors'
+import { selectFilteredTodos } from '../../redux/todos/selectors'
 import { fetchTodoThunk } from '../../redux/todos/operations'
 import { ListWrap } from './Todolist.styled'
 
